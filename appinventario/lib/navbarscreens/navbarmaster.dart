@@ -48,14 +48,14 @@ class _BottomNavBarState extends State<BottomNavBar> {
           height: 50.0,
           // Opciones en la barra de navegación
           items: <Widget>[
-            //Icon(Icons.rss_feed, size: 30, color: Colors.white),
+            Icon(Icons.camera, size: 30, color: Colors.white),
             Icon(Icons.home, size: 30, color: Colors.white),
-            //Icon(Icons.ondemand_video, size: 30, color: Colors.white),
+            Icon(Icons.file_copy_sharp, size: 30, color: Colors.white),
           ],
           // Color para la barra de navegación
-          color: Colors.redAccent,
+          color: Colors.indigo,
           // Color de fondo para cada botón
-          buttonBackgroundColor: Colors.redAccent,
+          buttonBackgroundColor: Colors.indigo,
           // Color de fondo
           backgroundColor: Colors.transparent,
           // Animación de movimiento

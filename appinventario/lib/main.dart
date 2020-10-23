@@ -99,7 +99,7 @@ class _MyAppState extends State<MyApp> {
                     children: <Widget>[
                       FlatButton(
                           textColor: Colors.white,
-                          color: Colors.redAccent,
+                          color: Colors.indigo,
                           child: Text('Iniciar sesión'),
                           onPressed: () {
                             Navigator.push(

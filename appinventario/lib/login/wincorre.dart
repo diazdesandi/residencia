@@ -16,7 +16,7 @@ class Widcorre extends StatelessWidget {
                       textStyle: TextStyle(
                           fontSize: ScreenUtil.getInstance().setSp(28),
                           fontWeight: FontWeight.bold,
-                          color: Colors.redAccent))),
+                          color: Colors.indigo))),
               TextField(
                 decoration: InputDecoration(
                     hintStyle: TextStyle(color: Colors.grey, fontSize: 12.0)),
@@ -42,7 +42,7 @@ class Widcorredos extends StatelessWidget {
                       textStyle: TextStyle(
                           fontSize: ScreenUtil.getInstance().setSp(26),
                           fontWeight: FontWeight.bold,
-                          color: Colors.redAccent))),
+                          color: Colors.indigo))),
               TextField(
                 decoration: InputDecoration(
                     hintStyle: TextStyle(color: Colors.grey, fontSize: 12.0)),

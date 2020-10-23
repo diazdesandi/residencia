@@ -44,7 +44,7 @@ class FormCard extends StatelessWidget {
                           textStyle: TextStyle(
                               fontSize: ScreenUtil.getInstance().setSp(28),
                               fontWeight: FontWeight.bold,
-                              color: Colors.redAccent))),
+                              color: Colors.indigo))),
                   TextField(
                     obscureText: true,
                     decoration: InputDecoration(

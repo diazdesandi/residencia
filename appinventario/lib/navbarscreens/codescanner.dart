@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
@@ -10,7 +9,7 @@ class MyScanner extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyScanner> {
-  String _scanBarcode = 'Unknown';
+  String _scanBarcode = 'Desconocido';
 
   @override
   void initState() {
@@ -19,24 +18,20 @@ class _MyAppState extends State<MyScanner> {
 
   startBarcodeScanStream() async {
     FlutterBarcodeScanner.getBarcodeStreamReceiver(
-            "#ff6666", "Cancel", true, ScanMode.BARCODE)
+            "#ff6666", "Cancelar", true, ScanMode.BARCODE)
         .listen((barcode) => print(barcode));
   }
 
   Future<void> scanQR() async {
     String barcodeScanRes;
-    // Platform messages may fail, so we use a try/catch PlatformException.
     try {
       barcodeScanRes = await FlutterBarcodeScanner.scanBarcode(
-          "#ff6666", "Cancel", true, ScanMode.QR);
+          "#ff6666", "Cancelar", true, ScanMode.QR);
       print(barcodeScanRes);
     } on PlatformException {
-      barcodeScanRes = 'Failed to get platform version.';
+      barcodeScanRes = 'Fallo para obtener la version de la plataforma';
     }
 
-    // If the widget was removed from the tree while the asynchronous platform
-    // message was in flight, we want to discard the reply rather than calling
-    // setState to update our non-existent appearance.
     if (!mounted) return;
 
     setState(() {
@@ -44,21 +39,16 @@ class _MyAppState extends State<MyScanner> {
     });
   }
 
-  // Platform messages are asynchronous, so we initialize in an async method.
   Future<void> scanBarcodeNormal() async {
     String barcodeScanRes;
-    // Platform messages may fail, so we use a try/catch PlatformException.
     try {
       barcodeScanRes = await FlutterBarcodeScanner.scanBarcode(
           "#ff6666", "Cancel", true, ScanMode.BARCODE);
       print(barcodeScanRes);
     } on PlatformException {
-      barcodeScanRes = 'Failed to get platform version.';
+      barcodeScanRes = 'Fallo para obtener la version';
     }
 
-    // If the widget was removed from the tree while the asynchronous platform
-    // message was in flight, we want to discard the reply rather than calling
-    // setState to update our non-existent appearance.
     if (!mounted) return;
 
     setState(() {
@@ -70,7 +60,12 @@ class _MyAppState extends State<MyScanner> {
   Widget build(BuildContext context) {
     return MaterialApp(
         home: Scaffold(
-            appBar: AppBar(title: const Text('Barcode scan')),
+            appBar: AppBar(
+              title: const Text(
+                'Prototipo 1',
+              ),
+              backgroundColor: Colors.indigo,
+            ),
             body: Builder(builder: (BuildContext context) {
               return Container(
                   alignment: Alignment.center,
@@ -78,16 +73,17 @@ class _MyAppState extends State<MyScanner> {
                       direction: Axis.vertical,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        RaisedButton(
+                        FlatButton(
+                            textColor: Colors.white,
+                            color: Colors.indigo,
                             onPressed: () => scanBarcodeNormal(),
-                            child: Text("Start barcode scan")),
-                        RaisedButton(
+                            child: Text("Escanear codigo de barras")),
+                        FlatButton(
+                            textColor: Colors.white,
+                            color: Colors.indigo,
                             onPressed: () => scanQR(),
-                            child: Text("Start QR scan")),
-                        RaisedButton(
-                            onPressed: () => startBarcodeScanStream(),
-                            child: Text("Start barcode scan stream")),
-                        Text('Scan result : $_scanBarcode\n',
+                            child: Text("EScanear QR")),
+                        Text('Resultado : $_scanBarcode\n',
                             style: TextStyle(fontSize: 20))
                       ]));
             })));
