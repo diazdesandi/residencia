@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'codescanner.dart';
+import 'manualform.dart';
 
 // Clase para crear y mantener en la interfaz la barra de navegación
 void main() => runApp(MaterialApp(home: BottomNavBar()));
@@ -17,6 +18,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
 
   // Creacion de paginas
   final MyScanner _codigos = MyScanner();
+  final DBTestPage _tablas = DBTestPage();
 
   Widget _menuprincipal = new MyScanner();
 
@@ -24,11 +26,11 @@ class _BottomNavBarState extends State<BottomNavBar> {
   Widget _selector(int page) {
     switch (page) {
       case 0:
+        return _tablas;
+        break;
+      case 1:
         return _codigos;
         break;
-      //case 1:
-      //return _menu;
-      //break;
       //case 2:
       //return _test2;
       //break;
