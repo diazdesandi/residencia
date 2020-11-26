@@ -62,7 +62,7 @@ class _MyAppState extends State<MyScanner> {
         home: Scaffold(
             appBar: AppBar(
               title: const Text(
-                'Prototipo 1',
+                'Prototipo 2',
               ),
               backgroundColor: Colors.indigo,
             ),
@@ -73,18 +73,28 @@ class _MyAppState extends State<MyScanner> {
                       direction: Axis.vertical,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        FlatButton(
-                            textColor: Colors.white,
-                            color: Colors.indigo,
-                            onPressed: () => scanBarcodeNormal(),
-                            child: Text("Escanear codigo de barras")),
-                        FlatButton(
-                            textColor: Colors.white,
-                            color: Colors.indigo,
-                            onPressed: () => scanQR(),
-                            child: Text("EScanear QR")),
+                        const SizedBox(height: 30),
+                        RaisedButton(
+                          onPressed: () => scanBarcodeNormal(),
+                          textColor: Colors.white,
+                          padding: const EdgeInsets.all(0.0),
+                          child: Container(
+                            decoration: const BoxDecoration(
+                              gradient: LinearGradient(
+                                colors: <Color>[
+                                  Color(0xFF0D47A1),
+                                  Color(0xFF1976D2),
+                                  Color(0xFF42A5F5),
+                                ],
+                              ),
+                            ),
+                            padding: const EdgeInsets.all(10.0),
+                            child: const Text('Escanear codigo de barra',
+                                style: TextStyle(fontSize: 24)),
+                          ),
+                        ),
                         Text('Resultado : $_scanBarcode\n',
-                            style: TextStyle(fontSize: 20))
+                            style: TextStyle(fontSize: 22))
                       ]));
             })));
   }

@@ -50,9 +50,9 @@ class _BottomNavBarState extends State<BottomNavBar> {
           height: 50.0,
           // Opciones en la barra de navegación
           items: <Widget>[
+            Icon(Icons.file_copy, size: 30, color: Colors.white),
             Icon(Icons.camera, size: 30, color: Colors.white),
-            Icon(Icons.home, size: 30, color: Colors.white),
-            Icon(Icons.file_copy_sharp, size: 30, color: Colors.white),
+            Icon(Icons.face, size: 30, color: Colors.white),
           ],
           // Color para la barra de navegación
           color: Colors.indigo,
