@@ -1,7 +1,7 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:appinventario/database/dbhelper.dart';
-import 'dart:async';
-import 'package:appinventario/database/db_creator.dart';
+import 'package:appinventario/database/dbarticulo.dart';
 
 class DBTestPage extends StatefulWidget {
   final String title;
@@ -15,7 +15,6 @@ class DBTestPage extends StatefulWidget {
 }
 
 class _DBTestPageState extends State<DBTestPage> {
-  //
   Future<List<Articulo>> articulos;
   TextEditingController controller = TextEditingController();
   String codigo;

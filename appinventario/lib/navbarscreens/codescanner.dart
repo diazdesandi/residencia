@@ -1,4 +1,6 @@
 import 'dart:async';
+import 'package:appinventario/database/dbarticulo.dart';
+import 'package:appinventario/database/dbhelper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
@@ -22,23 +24,6 @@ class _MyAppState extends State<MyScanner> {
         .listen((barcode) => print(barcode));
   }
 
-  Future<void> scanQR() async {
-    String barcodeScanRes;
-    try {
-      barcodeScanRes = await FlutterBarcodeScanner.scanBarcode(
-          "#ff6666", "Cancelar", true, ScanMode.QR);
-      print(barcodeScanRes);
-    } on PlatformException {
-      barcodeScanRes = 'Fallo para obtener la version de la plataforma';
-    }
-
-    if (!mounted) return;
-
-    setState(() {
-      _scanBarcode = barcodeScanRes;
-    });
-  }
-
   Future<void> scanBarcodeNormal() async {
     String barcodeScanRes;
     try {
@@ -50,9 +35,10 @@ class _MyAppState extends State<MyScanner> {
     }
 
     if (!mounted) return;
-
     setState(() {
       _scanBarcode = barcodeScanRes;
+      Articulo e = Articulo(null, barcodeScanRes);
+      DBHelper().save(e);
     });
   }
 
@@ -89,12 +75,12 @@ class _MyAppState extends State<MyScanner> {
                               ),
                             ),
                             padding: const EdgeInsets.all(10.0),
-                            child: const Text('Escanear codigo de barra',
+                            child: const Text('Escanear codigo de barras',
                                 style: TextStyle(fontSize: 24)),
                           ),
                         ),
                         Text('Resultado : $_scanBarcode\n',
-                            style: TextStyle(fontSize: 22))
+                            style: TextStyle(fontSize: 22)),
                       ]));
             })));
   }

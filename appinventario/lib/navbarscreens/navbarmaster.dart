@@ -1,7 +1,8 @@
+import 'package:appinventario/navbarscreens/codescanner.dart';
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'codescanner.dart';
 import 'manualform.dart';
+import 'codescanner.dart';
 
 // Clase para crear y mantener en la interfaz la barra de navegación
 void main() => runApp(MaterialApp(home: BottomNavBar()));
@@ -26,16 +27,16 @@ class _BottomNavBarState extends State<BottomNavBar> {
   Widget _selector(int page) {
     switch (page) {
       case 0:
-        return _tablas;
+        return _codigos;
         break;
       case 1:
-        return _codigos;
+        return _tablas;
         break;
-      //case 2:
-      //return _test2;
-      //break;
+      case 2:
+        return _tablas;
+        break;
       default:
-        return _codigos;
+        return _tablas;
     }
   }
 
@@ -50,9 +51,9 @@ class _BottomNavBarState extends State<BottomNavBar> {
           height: 50.0,
           // Opciones en la barra de navegación
           items: <Widget>[
-            Icon(Icons.file_copy, size: 30, color: Colors.white),
             Icon(Icons.camera, size: 30, color: Colors.white),
-            Icon(Icons.face, size: 30, color: Colors.white),
+            Icon(Icons.home, size: 30, color: Colors.white),
+            Icon(Icons.file_copy, size: 30, color: Colors.white),
           ],
           // Color para la barra de navegación
           color: Colors.indigo,
