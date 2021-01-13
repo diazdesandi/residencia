@@ -1,7 +1,10 @@
 import 'dart:async';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:appinventario/database/dbhelper.dart';
 import 'package:appinventario/database/dbarticulo.dart';
+
+import 'codescanner.dart';
 
 class DBTestPage extends StatefulWidget {
   final String title;
@@ -33,9 +36,17 @@ class _DBTestPageState extends State<DBTestPage> {
   }
 
   refreshList() {
-    setState(() {
-      articulos = dbHelper.getArticulos();
+    databaseReference
+        .collection("codigos")
+        // ignore: deprecated_member_use
+        .getDocuments()
+        .then((QuerySnapshot snapshot) {
+      // ignore: deprecated_member_use
+      snapshot.documents.forEach((f) => print('${f.data}}'));
     });
+    /*setState(() {
+      articulos = dbHelper.getArticulos();
+    });*/
   }
 
   clearName() {

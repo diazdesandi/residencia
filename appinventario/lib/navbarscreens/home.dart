@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:styled_widget/styled_widget.dart';
 
+// Access a Cloud Firestore instance from your Activity
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

@@ -1,9 +1,15 @@
 import 'dart:async';
-import 'package:appinventario/database/dbarticulo.dart';
+/*import 'package:appinventario/database/dbarticulo.dart';
 import 'package:appinventario/database/dbhelper.dart';
+*/
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
+
+final databaseReference = FirebaseFirestore.instance;
+final FirebaseAuth auth = FirebaseAuth.instance;
 
 class MyScanner extends StatefulWidget {
   @override
@@ -37,8 +43,9 @@ class _MyAppState extends State<MyScanner> {
     if (!mounted) return;
     setState(() {
       _scanBarcode = barcodeScanRes;
-      Articulo e = Articulo(null, barcodeScanRes);
-      DBHelper().save(e);
+      createRecord();
+      /*Articulo e = Articulo(null, barcodeScanRes);
+      DBHelper().save(e);*/
     });
   }
 
@@ -79,9 +86,22 @@ class _MyAppState extends State<MyScanner> {
                                 style: TextStyle(fontSize: 24)),
                           ),
                         ),
+                        RaisedButton(onPressed: () {
+                          createRecord();
+                        }),
                         Text('Resultado : $_scanBarcode\n',
                             style: TextStyle(fontSize: 22)),
                       ]));
             })));
+  }
+
+  final User user = auth.currentUser;
+  void createRecord() async {
+    DocumentReference ref = await databaseReference.collection("codigos").add({
+      'codigo': _scanBarcode,
+      'usuario': user.email,
+    });
+    // ignore: deprecated_member_use
+    print(ref.documentID);
   }
 }
