@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "344542792149",
+    "project_id": "residencia-22ec0",
+    "storage_bucket": "residencia-22ec0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:344542792149:android:58bab8f35f5a64fc51955c",
+        "android_client_info": {
+          "package_name": "com.example.appinventario"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "344542792149-qrhlhbmp7lh2jn217i50ahrfcmjfi340.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBL3mumzyyUiScQ6Qh6Vq8LKTyq1br079k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "344542792149-qrhlhbmp7lh2jn217i50ahrfcmjfi340.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

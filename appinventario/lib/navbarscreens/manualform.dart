@@ -164,7 +164,7 @@ class _DBTestPageState extends State<DBTestPage> {
     return new Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Prototipo 2',
+          'Registro',
         ),
         backgroundColor: Colors.indigo,
       ),

@@ -48,7 +48,7 @@ class _MyAppState extends State<MyScanner> {
         home: Scaffold(
             appBar: AppBar(
               title: const Text(
-                'Prototipo 2',
+                'Lector de codigo',
               ),
               backgroundColor: Colors.indigo,
             ),

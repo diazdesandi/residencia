@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'wincorre.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 
-class FormCard extends StatelessWidget {
+class Registrar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new Container(
@@ -28,7 +27,7 @@ class FormCard extends StatelessWidget {
             child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Text("Inicio de sesión",
+                  Text("Registro",
                       style: GoogleFonts.poppins(
                           textStyle: TextStyle(
                               fontSize: ScreenUtil.getInstance().setSp(45),
@@ -38,13 +37,12 @@ class FormCard extends StatelessWidget {
                   SizedBox(
                     height: ScreenUtil.getInstance().setHeight(30),
                   ),
-                  Widcorre(),
                   Text("Contraseña",
                       style: GoogleFonts.roboto(
                           textStyle: TextStyle(
                               fontSize: ScreenUtil.getInstance().setSp(28),
                               fontWeight: FontWeight.bold,
-                              color: Colors.indigo))),
+                              color: Colors.redAccent))),
                   TextField(
                     obscureText: true,
                     decoration: InputDecoration(
