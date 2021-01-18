@@ -3,8 +3,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:appinventario/database/dbhelper.dart';
 import 'package:appinventario/database/dbarticulo.dart';
-
 import 'codescanner.dart';
+import 'package:styled_widget/styled_widget.dart';
 
 class DBTestPage extends StatefulWidget {
   final String title;
@@ -182,7 +182,9 @@ class _DBTestPageState extends State<DBTestPage> {
             Text(
               'Registro',
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 32),
-            ),
+            )
+                .padding(top: 60, bottom: 10, horizontal: 20)
+                .alignment(Alignment.topLeft),
             form(),
             list(),
           ],

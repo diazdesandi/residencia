@@ -2,7 +2,7 @@ import 'dart:async';
 /*import 'package:appinventario/database/dbarticulo.dart';
 import 'package:appinventario/database/dbhelper.dart';
 */
-import 'package:appinventario/login/auth.dart';
+import 'package:appinventario/login/services/auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +14,6 @@ import 'package:styled_widget/styled_widget.dart';
 
 final databaseReference = FirebaseFirestore.instance;
 final FirebaseAuth auth = FirebaseAuth.instance;
-// final UserModel user;
 
 class MyScanner extends StatefulWidget {
   @override

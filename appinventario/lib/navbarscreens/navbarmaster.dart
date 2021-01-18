@@ -5,8 +5,6 @@ import 'manualform.dart';
 import 'codescanner.dart';
 
 // Clase para crear y mantener en la interfaz la barra de navegación
-void main() => runApp(MaterialApp(home: BottomNavBar()));
-
 class BottomNavBar extends StatefulWidget {
   @override
   _BottomNavBarState createState() => _BottomNavBarState();
