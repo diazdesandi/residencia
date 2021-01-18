@@ -1,57 +1,80 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+import 'auth.dart';
+import 'package:styled_widget/styled_widget.dart';
 
 class Registrar extends StatelessWidget {
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    return new Container(
-        width: double.infinity,
-        height: 300,
-        padding: EdgeInsets.only(bottom: 1),
-        decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(8.0),
-            boxShadow: [
-              BoxShadow(
-                  color: Colors.white,
-                  offset: Offset(0.0, 15.0),
-                  blurRadius: 15.0),
-              BoxShadow(
-                  color: Colors.white,
-                  offset: Offset(0.0, -10.0),
-                  blurRadius: 10.0),
-            ]),
-        child: Padding(
-            padding: EdgeInsets.only(left: 16.0, right: 16.0, top: 16.0),
-            child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
+    return new Scaffold(
+      backgroundColor: Colors.white,
+      body: Stack(children: <Widget>[
+        Container(
+            child: Column(children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.fromLTRB(50, 190, 50, 0),
+            child: Container(
+                child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
                   Text("Registro",
                       style: GoogleFonts.poppins(
                           textStyle: TextStyle(
-                              fontSize: ScreenUtil.getInstance().setSp(45),
+                        fontSize: 32,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black,
+                      ))).padding(horizontal: 0, vertical: 20),
+                  Text("Correo electrónico",
+                      style: GoogleFonts.roboto(
+                          textStyle: TextStyle(
+                              fontSize: 16,
                               fontWeight: FontWeight.bold,
-                              color: const Color(0xff515c6f),
-                              letterSpacing: .6))),
+                              color: Colors.indigo))),
+                  TextField(
+                    controller: emailController,
+                    decoration: InputDecoration(
+                        hintStyle:
+                            TextStyle(color: Colors.grey, fontSize: 13.0)),
+                  ),
                   SizedBox(
-                    height: ScreenUtil.getInstance().setHeight(30),
+                    height: 30,
                   ),
                   Text("Contraseña",
                       style: GoogleFonts.roboto(
                           textStyle: TextStyle(
-                              fontSize: ScreenUtil.getInstance().setSp(28),
+                              fontSize: 16,
                               fontWeight: FontWeight.bold,
-                              color: Colors.redAccent))),
+                              color: Colors.indigo))),
                   TextField(
+                    controller: passwordController,
                     obscureText: true,
                     decoration: InputDecoration(
                         hintStyle:
-                            TextStyle(color: Colors.grey, fontSize: 12.0)),
+                            TextStyle(color: Colors.grey, fontSize: 13.0)),
                   ),
                   SizedBox(
-                    height: ScreenUtil.getInstance().setHeight(35),
+                    height: 30,
                   ),
-                ])));
+                  Padding(
+                      padding: const EdgeInsets.fromLTRB(100, 0, 100, 0),
+                      child: FlatButton(
+                        textColor: Colors.white,
+                        color: Colors.indigo,
+                        child: Text('Registrar'),
+                        onPressed: () {
+                          context.read<AuthenticationService>().signUp(
+                                email: emailController.text.trim(),
+                                password: passwordController.text.trim(),
+                              );
+                        },
+                      ))
+                ])),
+          ),
+        ])),
+      ]),
+    );
   }
 }

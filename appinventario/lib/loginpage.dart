@@ -1,9 +1,8 @@
+import 'package:appinventario/login/registrar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'login/auth.dart';
-import 'login/respass.dart';
-import 'package:provider/provider.dart';
+import 'login/recup.dart';
 
 class SignInPage extends StatelessWidget {
   final TextEditingController emailController = TextEditingController();
@@ -104,7 +103,8 @@ class SignInPage extends StatelessWidget {
                                         Navigator.push(
                                           context,
                                           MaterialPageRoute(
-                                              builder: (context) => Recontra()),
+                                              builder: (context) =>
+                                                  RecuperarContra()),
                                         );
                                       })
                                 ])
@@ -114,25 +114,6 @@ class SignInPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Row(
-                    children: <Widget>[
-                      SizedBox(
-                        width: 12.0,
-                      ),
-                      /* GestureDetector(
-                        onTap: _radio,
-                        child: radioButton(_isSelected),
-                      ),*/
-                      SizedBox(
-                        width: 8.0,
-                      ),
-                      Text("Recordar datos",
-                          style: GoogleFonts.roboto(
-                              textStyle: TextStyle(
-                                  fontSize: ScreenUtil.getInstance().setSp(26),
-                                  fontWeight: FontWeight.bold)))
-                    ],
-                  ),
-                  Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: <Widget>[
                       FlatButton(
@@ -140,10 +121,28 @@ class SignInPage extends StatelessWidget {
                         color: Colors.indigo,
                         child: Text('Iniciar sesión'),
                         onPressed: () {
-                          context.read<AuthenticationService>().signIn(
-                                email: emailController.text.trim(),
-                                password: passwordController.text.trim(),
-                              );
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Registrar()),
+                          );
+                        },
+                      )
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: <Widget>[
+                      FlatButton(
+                        textColor: Colors.indigo,
+                        color: Colors.transparent,
+                        child: Text('Registrate aqui'),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Registrar()),
+                          );
                         },
                       )
                     ],
@@ -166,24 +165,6 @@ class SignInPage extends StatelessWidget {
     );
   }
 }
-
-// Boton de opcion con cierto tamaño (width y height) y cierto margen (padding)
-Widget radioButton(bool isSelected) => Container(
-      width: 16.0,
-      height: 16.0,
-      padding: EdgeInsets.all(2.0),
-      decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          border: Border.all(width: 2.0, color: Colors.black)),
-      child: isSelected
-          ? Container(
-              width: double.infinity,
-              height: double.infinity,
-              decoration:
-                  BoxDecoration(shape: BoxShape.circle, color: Colors.black),
-            )
-          : Container(),
-    );
 
 Widget horizontalLine() => Padding(
       padding: EdgeInsets.symmetric(horizontal: 16.0),

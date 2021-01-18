@@ -173,18 +173,16 @@ class _DBTestPageState extends State<DBTestPage> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          'Registro',
-        ),
-        backgroundColor: Colors.indigo,
-      ),
       body: new Container(
         child: new Column(
           mainAxisAlignment: MainAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
           verticalDirection: VerticalDirection.down,
           children: <Widget>[
+            Text(
+              'Registro',
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 32),
+            ),
             form(),
             list(),
           ],

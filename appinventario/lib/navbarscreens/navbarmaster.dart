@@ -1,4 +1,3 @@
-import 'package:appinventario/navbarscreens/home.dart';
 import 'package:appinventario/navbarscreens/codescanner.dart';
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
@@ -21,7 +20,6 @@ class _BottomNavBarState extends State<BottomNavBar> {
   // Creacion de paginas
   final MyScanner _codigos = MyScanner();
   final DBTestPage _tablas = DBTestPage();
-  final Home _home = Home();
 
   Widget _menuprincipal = new MyScanner();
 
@@ -32,13 +30,10 @@ class _BottomNavBarState extends State<BottomNavBar> {
         return _codigos;
         break;
       case 1:
-        return _home;
-        break;
-      case 2:
         return _tablas;
         break;
       default:
-        return _home;
+        return _codigos;
     }
   }
 
@@ -54,7 +49,6 @@ class _BottomNavBarState extends State<BottomNavBar> {
           // Opciones en la barra de navegación
           items: <Widget>[
             Icon(Icons.camera, size: 30, color: Colors.white),
-            Icon(Icons.home, size: 30, color: Colors.white),
             Icon(Icons.file_copy, size: 30, color: Colors.white),
           ],
           // Color para la barra de navegación
