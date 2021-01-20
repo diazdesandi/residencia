@@ -1,7 +1,7 @@
 import 'package:appinventario/navbarscreens/codescanner.dart';
+import 'package:appinventario/navbarscreens/tabla.dart';
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'manualform.dart';
 import 'codescanner.dart';
 
 // Clase para crear y mantener en la interfaz la barra de navegación
@@ -17,7 +17,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
 
   // Creacion de paginas
   final MyScanner _codigos = MyScanner();
-  final DBTestPage _tablas = DBTestPage();
+  final Formulario _tablas = Formulario();
 
   Widget _menuprincipal = new MyScanner();
 
