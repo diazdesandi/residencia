@@ -18,6 +18,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
   // Creacion de paginas
   final MyScanner _codigos = MyScanner();
   final Formulario _tablas = Formulario();
+  //final HomePage _codigos = HomePage();
 
   Widget _menuprincipal = new MyScanner();
 
